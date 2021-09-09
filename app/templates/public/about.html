@@ -1,0 +1,33 @@
+{% extends "public/templates/public_template.html" %}
+
+
+
+
+{% block main %}
+<br><br><br><br>
+<div class="container">
+    <h3>Description</h3>
+    <p align="justify">
+        The Revealing Invisible project, part of the <a href="https://hpscds.com/observatorio-hp/#RevealingInvisible">HP Technology Observatory 2020-21</a>, aims to magnify seemingly imperceptible changes in video sequences. The problem was approached using convolutional neural networks (CNNs), utilising high-level libraries such as PyTorch and OpenCV.
+    </p>
+    <p align="justify">
+        The proposal is based on the fact that the CNN is trained with two input images (original and slightly magnified original), to produce as output a magnified image (groundtruth). For this, we do not start from a set of training images and their respective validation set (magnified images), but these are generated dynamically (synthetic production of the dataset). In short, image processing comprises the following steps: make a copy of the original image, extract a random window from it, increase its size by a scale factor and paste the magnified window into the copy in a way that is centered with respect to the extraction position. This pasting will be done using the method of alpha blending, taking as a coefficient the value of the Gaussian. Therefore, the only differences between the slightly enlarged image (input) and the groundtruth image would be the scale factor and the value of the Gaussian at the edge.
+    </p>
+    <p align="justify">
+        Therefore, the proposed neural network must learn to magnify such imperceptible changes from the processing method explained previously. That is, it will be trained and validated with images, while when applied to videos, the video sequences will be divided into images (frames), passed through the network and joined together, to form the magnified video.
+    </p>
+    <hr>
+    <h3>Results</h3>
+    <video controls width="250" height="200" >
+        <source src="static/images/Revealing_Invisible.mp4"
+type="video/mp4">
+        This browser does not support the HTML5 video element.
+    </video>
+    <hr>
+    <h3> Getting started </h3> 
+    <p align="text-align:justify"> <i class="fa fa-github" style="font-size:48px"></i> Check the <a href="https://github.com/saulcanortiz/RevealingInvisible">code</a></p>
+</div>
+
+
+
+{% endblock %}

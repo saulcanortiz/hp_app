@@ -1,0 +1,36 @@
+{% extends "public/templates/public_template.html" %}
+
+{% if filename%}
+    <p>Your file {{filename}} has been uploaded</p>
+
+{% endif %}
+
+
+{% block main %}
+<br><br><br><br><br>
+<div class="row">
+    <div class="col">
+        <h3>Upload video</h3>
+        <hr>
+        <p><b>Important:</b> Click the button</p>
+        <p><button onclick="myFunction()" class="btn btn-primary">Info</button></p>
+            
+
+        <script>
+        function myFunction() {
+        alert("A dense block performs magnification, then feature extraction is better\nbut computing storage is limited.");
+        alert("Upload a video no longer than 10 secs and frame size around 700 pixels maximum.")
+        }
+        </script>
+        <form method="POST" action="/experience" enctype="multipart/form-data">
+            
+            <p><input type="file" name="file"></p>
+            <p><input type="submit" value="Submit"></p>
+        </form>
+        
+    </div>
+</div>
+
+
+
+{% endblock %}
